@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Liberation Mono:size=12:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/zsh";
 char *utmp = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 
@@ -63,7 +63,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-char *termname = "st-256color";
+char *termname = "xterm-256color";
 
 /*
  * spaces per tab
@@ -84,31 +84,27 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+    "#000000",  /*   0: black    */
+    "#E06C75",  /*   1: red      */
+    "#98C379",  /*   2: green    */
+    "#D19A66",  /*   3: yellow   */
+    "#61AEEE",  /*   4: blue     */
+    "#C678DD",  /*   5: magenta  */
+    "#56B6C2",  /*   6: cyan     */
+    "#ABB2BF",  /*   7: white    */
+    "#5C6370",  /*   8: brblack  */
+    "#E06C75",  /*   9: brred    */
+    "#98C379",  /*  10: brgreen  */
+    "#D19A66",  /*  11: bryellow */
+    "#62AFEE",  /*  12: brblue   */
+    "#C678DD",  /*  13: brmagenta*/
+    "#56B6C2",  /*  14: brcyan   */
+    "#FFFFFF",  /*  15: brwhite  */
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+    [255] = 0,  /* other colors follow */
 
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
+    "#282C34",  /* 256: background */
+    "#ABB2BF",  /* 257: foreground */
 };
 
 
@@ -116,10 +112,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+static unsigned int defaultcs = 257;
+static unsigned int defaultrcs = 256;
 
 /*
  * Default shape of cursor
